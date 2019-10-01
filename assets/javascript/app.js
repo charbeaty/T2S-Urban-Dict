@@ -46,7 +46,7 @@ $.ajax(udSettings).done(function (response) {
     // Passes the variables into the TTS API to create an audio file that plays the search variables we got from our Urban Dictionary API.
     var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsTerm + " . " + ttsExam + '&r=0')
     
-    audio.play();  // Plays the audio we created from our TTS API request.
+    audio.play();  // Plays the audio we created from our TTS API request. 
     
 }); 
 
