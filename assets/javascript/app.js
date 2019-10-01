@@ -61,7 +61,6 @@ $('#add-definition').click(function (event) {
 
     //FIREBASE SHIFT+PUSH
 
-    })
 });
 
 
@@ -71,7 +70,7 @@ $('#add-definition').click(function (event) {
             var searchesDiv = $('<div>');
             var searchesButtons = $('<button>');
             searchesButtons.addClass('searchesButtons');
-            searchesButtons.attr('PLACEHOLDER/FIREBASE');
+            searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
             searchesButtons.text('PLACEHOLDER/FIREBASE');
 
             searchesDiv.append(searchesButtons);
@@ -82,10 +81,24 @@ $('#add-definition').click(function (event) {
 
 //Button Click for Recently Searched buttons
 $(document).on('click', '#add-buttons', function() {
-    $('#definition-view').empty();
+    $('#definition').empty();
+
+    var thisTerm = $(this).attr('data-name');
+
+    //RUN AJAX FUNCTION
 });
 
 //Add Definition to Div
+for (var i = 0; i < 2; i++) {
+    var definitionDiv = $('<div>');
+    var p = $('<p>').text('DEFINITIONPLACEHOLDER');
+
+    definitionDiv.append(p);
+    $('.definitions').append(definitonDiv)
+}
+
+
+//Button Click for Definition T2S
 
 
 function apiCall() {
