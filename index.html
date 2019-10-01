@@ -1,59 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Urban Reader</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Urban Reader</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link type="text/css" src="./dist/bttn.min.css"/> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+</head>
+
+<body>
 
 
-        <div class="container">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
                 <h1 class="text-center">Urban Reader</h1>
             </div>
         </div>
+        <!-- div for clippy animation -->
 
         <!-- div for buttons of recently searched definition here -->
         <div id="add-buttons">Recently Searched Words:</div> <br>
-        <!-- div for clippy animation -->
-        <div id="clippy"></div>
-        <!-- Search input -->
-        <form id="definition-form">
-                <label id="provided" for="definition-input">What's the word?</label>
-                <input type="text" id="definition-input" required>
 
-        
-                <!-- Submit button to add definitions to screen -->
-                <input id="add-definition" type="submit" value="Define">
-            </form>
-            <br>
-            <!-- Defintions will be dumped here -->
-            <div class="definition" id="definition-view-1">Definition one</div>
-            <br>
-            <div class="definition" id="definition-view-2">Definition two</div>
-            <br>
-            <div class="definition" id="definition-view-3">Defintion three</div>
-            <br>
+        <div class="row">
+        <div class="column left">
+        <div id="clippy">
+            <img src="https://via.placeholder.com/150">
         </div>
+    </div>
+        <!-- Current word div -->
+        <div class="column middle">
+        <div id="current-word" class="center">Current Word:</div>
+       </div>
+        <br>
+        <!-- Search input -->
+        <div class="column right">
+        <form id="definition-form">
+            <label id="provided" for="definition-input">What's the word?</label>
+            <input type="text" id="definition-input" required> <br>
+        <!-- Submit button to add definitions to screen -->
+            <input id="add-definition" type="submit" value="Define">
+        </form>
+</div>
+</div>
+        <br>
+        <!-- Defintions will be dumped here -->
+
+                <div class="definition" id="definition-view-1">Definition one</div>
+                
+                <br>
+                
+                    <div class="definition" id="definition-view-2">Definition two</div>
+                    
+                    <br>
+                    
+                        <div class="definition" id="definition-view-3">Defintion three</div>
+                      
+                        <br>
+</div>
+   
+ <script src="assets/javascript/app.js" async defer></script>
+
+    <!-- Clippy.js -->
+    <script src="clippy.min.js"></script>
 
 
+</body>
 
-        <script src="" async defer></script>
-      <!-- jQuery 1.7+ -->
-<script src="jquery.1.7.min.js"></script>
-
-<!-- Clippy.js -->
-<script src="clippy.min.js"></script>
-
-
-    </body>
 </html>
