@@ -88,4 +88,25 @@ $(document).on('click', '#add-buttons', function() {
 //Add Definition to Div
 
 
+function apiCall() {
+    // Ajax request with our Urban Dictionary settings passed in.  
+    $.ajax(udSettings).done(function (response) {
+        console.log(response);
+
+        var short = response.list;  // Shortened response from API.
+        var i = 0;  // Placeholder until loop is set to run through list of responses.
+        ttsWord = short[i].word; // Variable assignment to the word response.
+        ttsDef = short[i].definition; // Variable assignment to the definition response.
+        ttsExam = short[i].example; // Variable assignment to the example response.
+
+        $("#definition").text(ttsDef); // Placeholder showing the definition to the screen on test machine.
+
+        // Passes the variables into the TTS API to create an audio file that plays the search variables we got from our Urban Dictionary API.
+        var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsDef + " . " + ttsExam + '&r=0')
+
+        audio.play();  // Plays the audio we created from our TTS API request. 
+    });
+}
+
+
 
