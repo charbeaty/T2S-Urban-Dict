@@ -1,0 +1,23 @@
+body {
+    background-image: url(https://us.123rf.com/450wm/veresovich/veresovich1803/veresovich180300193/98167943-red-leather-texture-may-used-as-background-.jpg?ver=6);
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+}
+
+#add-buttons,
+.definition,
+#provided,
+#add-definition,
+#definition-input {
+    border: 2px solid black;
+    background-color: black;
+    color: rgb(182, 156, 10);
+}
+
+.jumbotron {
+    background-color: black;
+    color: rgb(182, 156, 10);
+}
