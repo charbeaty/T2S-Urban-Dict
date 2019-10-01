@@ -14,7 +14,11 @@ $.ajax(settings).done(function (response) {
 });
 
 //Variable to hold recently searched
-var recentlySearched = [];
+var recentSearches = [];
+
+//Recently Searched buttons
+function recentlySearched
+
 
 //Button Click for recently searched buttons
 $(document).on('click', '#topic-buttons', function() {
@@ -29,4 +33,25 @@ $.ajax({
     url: queryURL,
     method: 'GET'
 })
+    //Once Data is returned
+    .then(function (response) {
+        console.log(response)
+        console.log(this)
+
+        var results = response.data;
+
+        //Add Definition to Div
+        for (var i = 0; i < results.lenght; i++) {
+
+        }
+        
+    })
 });
+
+//Submit New Definition
+$('#add-definition').click(function (event) {
+    event.preventDefault();
+    var newDef = $('#definition-input').val().trim().replace(/ /g, '+');
+
+    recentSearches.push(newDef);
+})
