@@ -1,6 +1,6 @@
 var term = ""; //The user input string we will pass to the Urban Dictionary API.
 var ttsWord = ""; //Holds the word of the response from the urban dictionary API.
-var ttsTerm = ""; //Holds the definition of the response from the urban dictionary API. 
+var ttsDef = ""; //Holds the definition of the response from the urban dictionary API. 
 var ttsExam = ""; //Holds the example of the response from the urban dictionary API. 
 var ttsAPI = 'b9adf06b180248ce99d0839658188104'; //TTS API key
 var recentTerms = []; //Will hold recent terms from firebase.  Still need to add the data from firebase
@@ -35,63 +35,57 @@ var database = firebase.database();
 // Ajax request with our Urban Dictionary settings passed in.  
 $.ajax(udSettings).done(function (response) {
     console.log(response);
-});
-
 
     var short = response.list;  // Shortened response from API.
     var i = 0;  // Placeholder until loop is set to run through list of responses.
     ttsWord = short[i].word; // Variable assignment to the word response.
-    ttsTerm = short[i].definition; // Variable assignment to the definition response.
+    ttsDef = short[i].definition; // Variable assignment to the definition response.
     ttsExam = short[i].example; // Variable assignment to the example response.
 
-    $("#definition").text(ttsTerm); // Placeholder showing the definition to the screen on test machine.
+    $("#definition").text(ttsDef); // Placeholder showing the definition to the screen on test machine.
 
     // Passes the variables into the TTS API to create an audio file that plays the search variables we got from our Urban Dictionary API.
-    var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsTerm + " . " + ttsExam + '&r=0')
+    var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsDef + " . " + ttsExam + '&r=0')
     
     audio.play();  // Plays the audio we created from our TTS API request. 
-    
+
 }); 
 
-//Variable to hold recently searched
-var recentSearches = [];
+//Firebase Array
+database.ref().set(recentTerms);
 
-//Recently Searched buttons
-function recentlySearched
+//Search New Term
+$('#add-definition').click(function (event) {
+    event.preventDefault();
+    ttsWord = $('#definition-input').val().trim().replace(/ /g, '+');
 
+    //FIREBASE SHIFT+PUSH
 
-//Button Click for recently searched buttons
-$(document).on('click', '#topic-buttons', function() {
-    $('#definition-view').empty();
-
-    ///PLACEHOLDERS
-var thisSearch = $(this).attr('PLACEHOLDER');
-var queryURL = 'PLACEHOLDER' + thisSearch + 'PLACEHOLDER'
-
-//AJAX GET
-$.ajax({
-    url: queryURL,
-    method: 'GET'
-})
-    //Once Data is returned
-    .then(function (response) {
-        console.log(response)
-        console.log(this)
-
-        var results = response.data;
-
-        //Add Definition to Div
-        for (var i = 0; i < results.lenght; i++) {
-
-        }
-        
     })
 });
 
-//Submit New Definition
-$('#add-definition').click(function (event) {
-    event.preventDefault();
-    var newDef = $('#definition-input').val().trim().replace(/ /g, '+');
 
-    recentSearches.push(newDef);
-})
+//Recently Searched buttons
+     function recentlySearched() {
+        for (var i = 0; i < 5; i ++) {
+            var searchesDiv = $('<div>');
+            var searchesButtons = $('<button>');
+            searchesButtons.addClass('searchesButtons');
+            searchesButtons.attr('PLACEHOLDER/FIREBASE');
+            searchesButtons.text('PLACEHOLDER/FIREBASE');
+
+            searchesDiv.append(searchesButtons);
+            $('#add-buttons').append(searchesButtons);
+        }
+    }
+
+
+//Button Click for Recently Searched buttons
+$(document).on('click', '#add-buttons', function() {
+    $('#definition-view').empty();
+});
+
+//Add Definition to Div
+
+
+
