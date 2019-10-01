@@ -1,23 +1,64 @@
 body {
-    background-image: url(https://us.123rf.com/450wm/veresovich/veresovich1803/veresovich180300193/98167943-red-leather-texture-may-used-as-background-.jpg?ver=6);
-    background-color: #cccccc; /* Used if the image is unavailable */
-    height: 500px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    /* background-image: url(https://us.123rf.com/450wm/veresovich/veresovich1803/veresovich180300193/98167943-red-leather-texture-may-used-as-background-.jpg?ver=6); */
+    background-color: white;
+    height: 500px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     background-size: cover; 
 }
 
 #add-buttons,
 .definition,
 #provided,
-#add-definition,
-#definition-input {
+#definition-form,
+#current-word {
     border: 2px solid black;
     background-color: black;
     color: rgb(182, 156, 10);
 }
 
+#current-word {
+    height: 150px;
+}
+
+#add-buttons {
+    height: 50px;
+}
+
+#add-definition {
+    margin: 5px;
+    background-color: rgb(182, 156, 10);
+}
+
+#definition-input{
+    margin: 1px;
+    padding: 1px;
+}
+
 .jumbotron {
     background-color: black;
     color: rgb(182, 156, 10);
+}
+
+.column {
+    float: left;
+    padding: 25px;
+}
+
+.left, .right {
+    width: 25%;
+}
+
+.middle {
+    width: 50%;
+}
+
+.row:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.definition {
+    height: 150px;
 }
