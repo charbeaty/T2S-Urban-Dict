@@ -35,6 +35,9 @@ var database = firebase.database();
 // Ajax request with our Urban Dictionary settings passed in.  
 $.ajax(udSettings).done(function (response) {
     console.log(response);
+});
+
+
     var short = response.list;  // Shortened response from API.
     var i = 0;  // Placeholder until loop is set to run through list of responses.
     ttsWord = short[i].word; // Variable assignment to the word response.
@@ -50,3 +53,45 @@ $.ajax(udSettings).done(function (response) {
     
 }); 
 
+//Variable to hold recently searched
+var recentSearches = [];
+
+//Recently Searched buttons
+function recentlySearched
+
+
+//Button Click for recently searched buttons
+$(document).on('click', '#topic-buttons', function() {
+    $('#definition-view').empty();
+
+    ///PLACEHOLDERS
+var thisSearch = $(this).attr('PLACEHOLDER');
+var queryURL = 'PLACEHOLDER' + thisSearch + 'PLACEHOLDER'
+
+//AJAX GET
+$.ajax({
+    url: queryURL,
+    method: 'GET'
+})
+    //Once Data is returned
+    .then(function (response) {
+        console.log(response)
+        console.log(this)
+
+        var results = response.data;
+
+        //Add Definition to Div
+        for (var i = 0; i < results.lenght; i++) {
+
+        }
+        
+    })
+});
+
+//Submit New Definition
+$('#add-definition').click(function (event) {
+    event.preventDefault();
+    var newDef = $('#definition-input').val().trim().replace(/ /g, '+');
+
+    recentSearches.push(newDef);
+})
