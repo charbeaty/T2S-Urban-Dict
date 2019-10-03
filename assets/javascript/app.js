@@ -70,7 +70,7 @@ function play(audio) {
 //Search New Term
 $('#add-definition').click(function (event) {
     event.preventDefault();
-    ttsWord = $('#definition-input').val().trim().replace(/ /g, '+');
+    ttsWord = $('#definition-input').val().trim();
     apiCall(ttsWord);
 
     //Add New Term to Button Div
