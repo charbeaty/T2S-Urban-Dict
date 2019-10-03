@@ -81,6 +81,7 @@ function play(audio) {
 $('#add-definition').click(function (event) {
     event.preventDefault();
     ttsWord = $('#definition-input').val().trim();
+    
     apiCall(ttsWord);
 
     //Add New Term to Button Div
