@@ -65,11 +65,16 @@ var database = firebase.database();
 //Firebase Array
 database.ref().set(recentTerms);
 
+
+
 //Search New Term
 $('#add-definition').click(function (event) {
     event.preventDefault();
     ttsWord = $('#definition-input').val().trim().replace(/ /g, '+');
     apiCall(ttsWord);
+
+    //Clear Text Box
+    $('#definition-input').val('');
 
     //FIREBASE SHIFT+PUSH
 
@@ -96,7 +101,9 @@ function recentlySearched() {
 $(document).on('click', '#add-buttons', function() {
     $('#definition').empty();
 
-    var thisTerm = $(this).attr('data-name');
+    var thisTerm = $(this).attr('data-name')
+
+    
 
     //RUN AJAX FUNCTION
 });
