@@ -23,7 +23,17 @@ var database = firebase.database();
 // Sets the recentTerms array to the firebase values.
 database.ref().on("value", function (snapshot) {
     recentTerms = snapshot.val();
+    $("#add-buttons").empty();
+    for (var i = 0; i < recentTerms.length; i++) {
+        var button = $("<button>");
+        button.addClass("recent-search");
+        button.attr("val", recentTerms[i]);
+        button.text(recentTerms[i]);
+        $("#add-buttons").append(button);
+    }
 });
+
+
 
 function apiCall(term) {
     //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
@@ -49,7 +59,7 @@ function apiCall(term) {
         $("#current-word").text("Current Word: " + ttsWord);
         $("#definition-view-1").text(short[0].definition);
         $("#definition-view-2").text(short[1].definition);
-        $("#definition-view-3").text(short[2].definition); 
+        $("#definition-view-3").text(short[2].definition);
 
         audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
         audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
@@ -87,25 +97,25 @@ $('#add-definition').click(function (event) {
     }
     console.log(recentTerms)
     database.ref().update(recentTerms);
-
 });
 
-//Recently Searched buttons
-function recentlySearched() {
-    for (var i = 0; i < recentTerms.length; i ++) {
-            var searchesDiv = $('<div>');
-            var searchesButtons = $('<button>');
-            searchesButtons.addClass('searchesButtons');
-            searchesButtons.attr('data-name', recentTerms[i]);
-            searchesButtons.text(recentTerms[i]);
 
-            searchesDiv.append(searchesButtons);
-            $('#add-buttons').append(searchesButtons);
-    }
-}
+// //Recently Searched buttons
+// function recentlySearched() {
+//     for (var i = 0; i < 5; i ++) {
+//             var searchesDiv = $('<div>');
+//             var searchesButtons = $('<button>');
+//             searchesButtons.addClass('searchesButtons');
+//             searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
+//             searchesButtons.text('PLACEHOLDER/FIREBASE');
+
+//             searchesDiv.append(searchesButtons);
+//             $('#add-buttons').append(searchesButtons);
+//     }
+// }
 
 //Button Click for Recently Searched buttons
-$(document).on('click', '#add-buttons', function() {
+$(document).on('click', '#add-buttons', function () {
     $('#definition').empty();
 
     term = $(this).attr('data-name');
