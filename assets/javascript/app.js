@@ -3,6 +3,22 @@ var audioDef0 = "";
 var audioDef1 = "";
 var audioDef2 = "";
 
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBADdFEM1R_H16JbRWh90kGOB4X4pK6yFs",
+    authDomain: "urban-text-to-speech.firebaseapp.com",
+    databaseURL: "https://urban-text-to-speech.firebaseio.com",
+    projectId: "urban-text-to-speech",
+    storageBucket: "",
+    messagingSenderId: "567386930661",
+    appId: "1:567386930661:web:367eb94614400531c4030c"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// The variable to shorten the call to the firebase database.
+var database = firebase.database();
+
 function apiCall(term) {
     //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
     var udSettings = {
@@ -23,6 +39,13 @@ function apiCall(term) {
 
         var short = response.list; // Shortened response from API.
         var ttsWord = short[0].word; // Variable assignment to the word response.
+
+        recentTerms.push(ttsWord);
+        if(recentTerms.length > 5) {
+            recentTerms.shift();
+        }
+        console.log(recentTerms)
+        database.ref().update(recentTerms);
 
         $("#current-word").text("Current Word: " + ttsWord);
         $("#definition-view-1").text(short[0].definition);
@@ -46,24 +69,7 @@ function play(audio) {
 }
 
 
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyBADdFEM1R_H16JbRWh90kGOB4X4pK6yFs",
-    authDomain: "urban-text-to-speech.firebaseapp.com",
-    databaseURL: "https://urban-text-to-speech.firebaseio.com",
-    projectId: "urban-text-to-speech",
-    storageBucket: "",
-    messagingSenderId: "567386930661",
-    appId: "1:567386930661:web:367eb94614400531c4030c"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-// The variable to shorten the call to the firebase database.
-var database = firebase.database();
-
-//Firebase Array
-database.ref().set(recentTerms);
 
 //Search New Term
 $('#add-definition').click(function (event) {
@@ -100,15 +106,6 @@ $(document).on('click', '#add-buttons', function() {
 
     //RUN AJAX FUNCTION
 });
-
-//Add Definition to Div
-for (var i = 0; i < 2; i++) {
-    var definitionDiv = $('<div>');
-    var p = $('<p>').text('DEFINITIONPLACEHOLDER');
-
-    definitionDiv.append(p);
-    $('.definitions').append(definitonDiv)
-}
 
 //Button Click for Definition T2S
 
