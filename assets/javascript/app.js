@@ -50,7 +50,7 @@ function apiCall(term) {
         $("#current-word").text("Current Word: " + ttsWord);
         $("#definition-view-1").text(short[0].definition);
         $("#definition-view-2").text(short[1].definition);
-        $("#definition-view-3").text(short[2].definition);
+        $("#definition-view-3").text(short[2].definition); 
 
         audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
         audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
