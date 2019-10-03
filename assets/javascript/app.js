@@ -73,10 +73,15 @@ $('#add-definition').click(function (event) {
     ttsWord = $('#definition-input').val().trim().replace(/ /g, '+');
     apiCall(ttsWord);
 
+    //Add New Term to Button Div
+    recentTerms.push(ttsWord);
+    recentlySearched();
+
     //Clear Text Box
     $('#definition-input').val('');
 
     //FIREBASE SHIFT+PUSH
+    database.ref().set(ttsWord);
 
 });
 
@@ -87,8 +92,8 @@ function recentlySearched() {
             var searchesDiv = $('<div>');
             var searchesButtons = $('<button>');
             searchesButtons.addClass('searchesButtons');
-            searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
-            searchesButtons.text('PLACEHOLDER/FIREBASE');
+            searchesButtons.attr('data-name', recentTerms[i]);
+            searchesButtons.text(recentTerms[i]);
 
             searchesDiv.append(searchesButtons);
             $('#add-buttons').append(searchesButtons);
