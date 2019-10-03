@@ -1,4 +1,5 @@
 var recentTerms = []; //Will hold recent terms from firebase.  Still need to add the data from firebase
+var ttsWord;
 var audioDef0 = "";
 var audioDef1 = "";
 var audioDef2 = "";
@@ -19,6 +20,21 @@ firebase.initializeApp(firebaseConfig);
 // The variable to shorten the call to the firebase database.
 var database = firebase.database();
 
+// Sets the recentTerms array to the firebase values.
+database.ref().on("value", function (snapshot) {
+    recentTerms = snapshot.val();
+    $("#add-buttons").empty();
+    for (var i = 0; i < recentTerms.length; i++) {
+        var button = $("<button>");
+        button.addClass("recent-search");
+        button.attr("val", recentTerms[i]);
+        button.text(recentTerms[i]);
+        $("#add-buttons").append(button);
+    }
+});
+
+
+
 function apiCall(term) {
     //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
     var udSettings = {
@@ -34,23 +50,16 @@ function apiCall(term) {
 
     var ttsAPI = 'b9adf06b180248ce99d0839658188104'; //TTS API key
     // Ajax request with our Urban Dictionary settings passed in.  
-    $.ajax(udSettings).done(function (response) {
+    $.ajax(udSettings)
+    .done(function (response) {
         console.log(response);
-
         var short = response.list; // Shortened response from API.
-        var ttsWord = short[0].word; // Variable assignment to the word response.
-
-        recentTerms.push(ttsWord);
-        if(recentTerms.length > 5) {
-            recentTerms.shift();
-        }
-        console.log(recentTerms)
-        database.ref().update(recentTerms);
+        ttsWord = short[0].word; // Variable assignment to the word response.
 
         $("#current-word").text("Current Word: " + ttsWord);
         $("#definition-view-1").text(short[0].definition);
         $("#definition-view-2").text(short[1].definition);
-        $("#definition-view-3").text(short[2].definition); 
+        $("#definition-view-3").text(short[2].definition);
 
         audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
         audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
@@ -68,38 +77,40 @@ function play(audio) {
     audio.currentTime = 0
 }
 
-
-
-
 //Search New Term
 $('#add-definition').click(function (event) {
     event.preventDefault();
-    ttsWord = $('#definition-input').val().trim().replace(/ /g, '+');
+    ttsWord = $('#definition-input').val().trim();
     apiCall(ttsWord);
 
     //FIREBASE SHIFT+PUSH
-
+    recentTerms.push(ttsWord);
+    if (recentTerms.length > 5) {
+        recentTerms.shift();
+    }
+    console.log(recentTerms)
+    database.ref().update(recentTerms);
 });
 
 
-//Recently Searched buttons
-function recentlySearched() {
-    for (var i = 0; i < 5; i ++) {
-            var searchesDiv = $('<div>');
-            var searchesButtons = $('<button>');
-            searchesButtons.addClass('searchesButtons');
-            searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
-            searchesButtons.text('PLACEHOLDER/FIREBASE');
+// //Recently Searched buttons
+// function recentlySearched() {
+//     for (var i = 0; i < 5; i ++) {
+//             var searchesDiv = $('<div>');
+//             var searchesButtons = $('<button>');
+//             searchesButtons.addClass('searchesButtons');
+//             searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
+//             searchesButtons.text('PLACEHOLDER/FIREBASE');
 
-            searchesDiv.append(searchesButtons);
-            $('#add-buttons').append(searchesButtons);
-    }
-}
+//             searchesDiv.append(searchesButtons);
+//             $('#add-buttons').append(searchesButtons);
+//     }
+// }
 
 
 
 //Button Click for Recently Searched buttons
-$(document).on('click', '#add-buttons', function() {
+$(document).on('click', '#add-buttons', function () {
     $('#definition').empty();
 
     var thisTerm = $(this).attr('data-name');
