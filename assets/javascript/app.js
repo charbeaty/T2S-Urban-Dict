@@ -1,4 +1,5 @@
 var recentTerms = []; //Will hold recent terms from firebase.  Still need to add the data from firebase
+var ttsWord;
 var audioDef0 = "";
 var audioDef1 = "";
 var audioDef2 = "";
@@ -19,6 +20,11 @@ firebase.initializeApp(firebaseConfig);
 // The variable to shorten the call to the firebase database.
 var database = firebase.database();
 
+// Sets the recentTerms array to the firebase values.
+database.ref().on("value", function (snapshot) {
+    recentTerms = snapshot.val();
+});
+
 function apiCall(term) {
     //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
     var udSettings = {
@@ -38,14 +44,7 @@ function apiCall(term) {
         console.log(response);
 
         var short = response.list; // Shortened response from API.
-        var ttsWord = short[0].word; // Variable assignment to the word response.
-
-        recentTerms.push(ttsWord);
-        if(recentTerms.length > 5) {
-            recentTerms.shift();
-        }
-        console.log(recentTerms)
-        database.ref().update(recentTerms);
+        ttsWord = short[0].word; // Variable assignment to the word response.
 
         $("#current-word").text("Current Word: " + ttsWord);
         $("#definition-view-1").text(short[0].definition);
@@ -71,6 +70,9 @@ function play(audio) {
 
 
 
+
+
+
 //Search New Term
 $('#add-definition').click(function (event) {
     event.preventDefault();
@@ -78,6 +80,12 @@ $('#add-definition').click(function (event) {
     apiCall(ttsWord);
 
     //FIREBASE SHIFT+PUSH
+    recentTerms.push(ttsWord);
+    if (recentTerms.length > 5) {
+        recentTerms.shift();
+    }
+    console.log(recentTerms)
+    database.ref().update(recentTerms);
 
 });
 
