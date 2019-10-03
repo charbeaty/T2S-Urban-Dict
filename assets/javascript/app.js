@@ -50,9 +50,9 @@ function apiCall(term) {
 
     var ttsAPI = 'b9adf06b180248ce99d0839658188104'; //TTS API key
     // Ajax request with our Urban Dictionary settings passed in.  
-    $.ajax(udSettings).done(function (response) {
+    $.ajax(udSettings)
+    .done(function (response) {
         console.log(response);
-
         var short = response.list; // Shortened response from API.
         ttsWord = short[0].word; // Variable assignment to the word response.
 
