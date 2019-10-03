@@ -30,43 +30,43 @@
         <div id="add-buttons">Recently Searched Words:</div> <br>
 
         <div class="row">
-        <div class="column left">
-        <div id="clippy">
-            <img src="https://via.placeholder.com/150">
+            <div class="column left">
+                <div id="clippy">
+                    <img src="https://via.placeholder.com/150">
+                </div>
+            </div>
+            <!-- Current word div -->
+            <div class="column middle">
+                <div id="current-word" class="center">Current Word:</div>
+            </div>
+            <br>
+            <!-- Search input -->
+            <div class="column right">
+                <form id="definition-form">
+                    <label id="provided" for="definition-input">What's the word?</label>
+                    <input type="text" id="definition-input" required> <br>
+                    <!-- Submit button to add definitions to screen -->
+                    <input id="add-definition" type="submit" value="Define">
+                </form>
+            </div>
         </div>
-    </div>
-        <!-- Current word div -->
-        <div class="column middle">
-        <div id="current-word" class="center">Current Word:</div>
-       </div>
-        <br>
-        <!-- Search input -->
-        <div class="column right">
-        <form id="definition-form">
-            <label id="provided" for="definition-input">What's the word?</label>
-            <input type="text" id="definition-input" required> <br>
-        <!-- Submit button to add definitions to screen -->
-            <input id="add-definition" type="submit" value="Define">
-        </form>
-</div>
-</div>
         <br>
         <!-- Defintions will be dumped here -->
 
-                <div class="definition" id="definition-view-1">Definition one</div>
-                
-                <br>
-                
-                    <div class="definition" id="definition-view-2">Definition two</div>
-                    
-                    <br>
-                    
-                        <div class="definition" id="definition-view-3">Defintion three</div>
-                      
-                        <br>
-</div>
-   
- <script src="assets/javascript/app.js" async defer></script>
+        <div class="definition" id="definition-view-1">Definition one</div>
+
+        <br>
+
+        <div class="definition" id="definition-view-2">Definition two</div>
+
+        <br>
+
+        <div class="definition" id="definition-view-3">Defintion three</div>
+
+        <br>
+    </div>
+
+    <script src="assets/javascript/app.js" async defer></script>
 
     <!-- Clippy.js -->
     <script src="clippy.min.js"></script>
