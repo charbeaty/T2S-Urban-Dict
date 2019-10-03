@@ -68,11 +68,6 @@ function play(audio) {
     audio.currentTime = 0
 }
 
-
-
-
-
-
 //Search New Term
 $('#add-definition').click(function (event) {
     event.preventDefault();
@@ -91,10 +86,9 @@ $('#add-definition').click(function (event) {
 
 });
 
-
 //Recently Searched buttons
 function recentlySearched() {
-    for (var i = 0; i < 5; i ++) {
+    for (var i = 0; i < recentTerms.length; i ++) {
             var searchesDiv = $('<div>');
             var searchesButtons = $('<button>');
             searchesButtons.addClass('searchesButtons');
@@ -105,8 +99,6 @@ function recentlySearched() {
             $('#add-buttons').append(searchesButtons);
     }
 }
-
-
 
 //Button Click for Recently Searched buttons
 $(document).on('click', '#add-buttons', function() {
