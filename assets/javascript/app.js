@@ -100,32 +100,18 @@ $('#add-definition').click(function (event) {
     database.ref().update(recentTerms);
 });
 
-
-// //Recently Searched buttons
-// function recentlySearched() {
-//     for (var i = 0; i < 5; i ++) {
-//             var searchesDiv = $('<div>');
-//             var searchesButtons = $('<button>');
-//             searchesButtons.addClass('searchesButtons');
-//             searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
-//             searchesButtons.text('PLACEHOLDER/FIREBASE');
-
-//             searchesDiv.append(searchesButtons);
-//             $('#add-buttons').append(searchesButtons);
-//     }
-// }
-
 //Button Click for Recently Searched buttons
 $(document).on('click', '#add-buttons', function () {
     $('#definition').empty();
 
-    term = $(this).attr('data-name');
+    term = $(this).attr(term);
         console.log(term)
+
+        //RUN AJAX FUNCTION
         apiCall(term);
 
     
 
-    //RUN AJAX FUNCTION
 });
 
 //Button Click for Definition T2S
