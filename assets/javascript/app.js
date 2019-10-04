@@ -51,20 +51,20 @@ function apiCall(term) {
     var ttsAPI = 'b9adf06b180248ce99d0839658188104'; //TTS API key
     // Ajax request with our Urban Dictionary settings passed in.  
     $.ajax(udSettings)
-    .done(function (response) {
-        console.log(response);
-        var short = response.list; // Shortened response from API.
-        ttsWord = short[0].word; // Variable assignment to the word response.
+        .done(function (response) {
+            console.log(response);
+            var short = response.list; // Shortened response from API.
+            ttsWord = short[0].word; // Variable assignment to the word response.
 
-        $("#current-word").text("Current Word: " + ttsWord);
-        $("#definition-view-1").text(short[0].definition);
-        $("#definition-view-2").text(short[1].definition);
-        $("#definition-view-3").text(short[2].definition);
+            $("#current-word").text("Current Word: " + ttsWord);
+            $("#definition-view-1").text(short[0].definition);
+            $("#definition-view-2").text(short[1].definition);
+            $("#definition-view-3").text(short[2].definition);
 
-        audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
-        audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
-        audioDef2 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[2].word + " . " + short[2].definition + " . Example: " + short[2].example + '&r=0');
-    });
+            audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
+            audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
+            audioDef2 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[2].word + " . " + short[2].definition + " . Example: " + short[2].example + '&r=0');
+        });
 }
 
 function play(audio) {
@@ -81,7 +81,7 @@ function play(audio) {
 $('#add-definition').click(function (event) {
     event.preventDefault();
     ttsWord = $('#definition-input').val().trim();
-    
+
     apiCall(ttsWord);
 
     //Add New Term to Button Div
@@ -104,13 +104,15 @@ $('#add-definition').click(function (event) {
 $(document).on('click', '#add-buttons', function () {
     $('#definition').empty();
 
+    //RUN AJAX FUNCTION
+    apiCall(term);
     term = $(this).attr(term);
-        console.log(term)
+    console.log(term)
 
-        //RUN AJAX FUNCTION
-        apiCall(term);
 
-    
+    // store to local storage
+
+
 
 });
 
