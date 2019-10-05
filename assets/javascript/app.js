@@ -74,7 +74,7 @@ $(document).ready(function () {
                 audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
                 audioDef2 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[2].word + " . " + short[2].definition + " . Example: " + short[2].example + '&r=0');
             });
-    }
+    };
 
     function play(audio) {
         if (audio.paused) {
@@ -92,7 +92,6 @@ $(document).ready(function () {
         ttsWord = $('#definition-input').val().trim();
         apiCall(ttsWord);
 
-
         //FIREBASE SHIFT+PUSH
         recentTerms.push(ttsWord);
         if (recentTerms.length > 5) {
@@ -101,7 +100,6 @@ $(document).ready(function () {
         console.log(recentTerms)
         database.ref().update(recentTerms);
     });
-   
 
     //When clicking the recent search button it passes the value to the api call.  This was a pain in the ass and the only way I could get it to work.
 
@@ -144,8 +142,4 @@ $(document).ready(function () {
         play(audioDef2);
     });
 
-
 });
-
-
-
