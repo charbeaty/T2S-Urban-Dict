@@ -88,6 +88,7 @@ $(document).ready(function () {
         ttsWord = $('#definition-input').val().trim();
         apiCall(ttsWord);
 
+
         //FIREBASE SHIFT+PUSH
         recentTerms.push(ttsWord);
         if (recentTerms.length > 5) {
@@ -96,6 +97,7 @@ $(document).ready(function () {
         console.log(recentTerms)
         database.ref().update(recentTerms);
     });
+   
 
     //When clicking the recent search button it passes the value to the api call.  This was a pain in the ass and the only way I could get it to work.
 
@@ -139,6 +141,41 @@ $(document).ready(function () {
     });
 
 });
+
+//Clippy Animation
+
+clippy.load('Clippy', function(agent){    
+    const animations = agent.animations();    
+    $('#clippy').text(animations.join(' '));
+    agent.show();
+    agent.moveTo(100,100);
+    agent.speak('When all else fails, bind some paper together. My name is Clippy.');
+    setTimeout(animate.bind(null, agent, animations), 8000);        
+  });
+  
+  function animate(agent, animations){  
+    
+    function doneCallback(animation){
+      console.log('done ' + animation);
+    }
+    
+    let statesText = animations.join(' '),
+        $state = $('#clippy'),
+        $states = $('#clippy');
+      
+    for(var i = 0; i<animations.length; i++){      
+      ((index)=>{
+        setTimeout(_=>{
+          let animation = animations[index];
+          let currentStateInStates = statesText.replace(animation, `<b>${animation}</b>`);
+          $state.text(animation);                
+          $states.html(currentStateInStates);
+          agent.play(animation, undefined, doneCallback.bind(null, animation));  
+        }, index*8000);
+      })(i);        
+    }
+  }
+  
 
 
 
