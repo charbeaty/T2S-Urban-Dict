@@ -104,26 +104,31 @@ $(document).ready(function () {
     $(document).on('click', '#recent0', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent1', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent2', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent3', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent4', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     //Button Click for Definition T2S
@@ -176,158 +181,3 @@ clippy.load('Clippy', function(agent){
     }
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //Recently Searched buttons
-// function recentlySearched() {
-//     for (var i = 0; i < 5; i ++) {
-//             var searchesDiv = $('<div>');
-//             var searchesButtons = $('<button>');
-//             searchesButtons.addClass('searchesButtons');
-//             searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
-//             searchesButtons.text('PLACEHOLDER/FIREBASE');
-
-//             searchesDiv.append(searchesButtons);
-//             $('#add-buttons').append(searchesButtons);
-//     }
-// }
-
-
-
-// //Button Click for Recently Searched buttons
-// $(document).on('click', '#add-buttons', function () {
-//     $('#definition').empty();
-
-//     var thisTerm = $(this).attr('data-name');
-
-//     //RUN AJAX FUNCTION
-// });
-
-
-//Testing graveyard that we still may need.
-
-// var term = ""; //The user input string we will pass to the Urban Dictionary API.
-// var ttsWord = ""; //Holds the word of the response from the urban dictionary API.
-// var ttsDef = ""; //Holds the definition of the response from the urban dictionary API. 
-// var ttsExam = ""; //Holds the example of the response from the urban dictionary API.
-
-// //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
-// var udSettings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + term,
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
-//         "x-rapidapi-key": "865d7325ecmshf0a5dcd3da7a815p1672a1jsn663835f71fe6"
-//     }
-// }
-
-// // Ajax request with our Urban Dictionary settings passed in.  
-// $.ajax(udSettings).done(function (response) {
-//     console.log(response);
-
-//     var short = response.list; // Shortened response from API.
-//     var i = 0; // Placeholder until loop is set to run through list of responses.
-//     ttsWord = short[i].word; // Variable assignment to the word response.
-//     ttsDef = short[i].definition; // Variable assignment to the definition response.
-//     ttsExam = short[i].example; // Variable assignment to the example response.
-
-//     $("#definition").text(ttsDef); // Placeholder showing the definition to the screen on test machine.
-
-//     // Passes the variables into the TTS API to create an audio file that plays the search variables we got from our Urban Dictionary API.
-//     var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsDef + " . " + ttsExam + '&r=0')
-
-//     audio.play(); // Plays the audio we created from our TTS API request. 
-
-// });

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- <link type="text/css" src="./dist/bttn.min.css"/> -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Add the stylesheet to the head for clippy.js -->
+    <link rel="stylesheet" type="text/css" href="clippy/src/clippy.css" media="all">
 </head>
 
 <body>
@@ -68,10 +70,14 @@
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Babel CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
-    <!-- Clippy CDN -->
-    <script src="https://cdn.rawgit.com/smore-inc/clippy.js/master/build/clippy.min.js"></script>
+    <!-- Clippy -->
+    <script src="clippy/build/clippy.min.js"></script>
+    <script type="text/javascript">
+        clippy.load('Clippy', function (agent) {
+            // Do anything with the loaded agent
+            agent.show();
+        });
+    </script>
     <!-- App.js -->
     <script src="assets/javascript/app.js"></script>
 
