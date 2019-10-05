@@ -41,7 +41,6 @@ $(document).ready(function () {
     clippy.load('Clippy', function (agent) {
         // Do anything with the loaded agent
         agent.show();
-        agent.animate();
     });
 
     function apiCall(term) {
