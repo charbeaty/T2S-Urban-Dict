@@ -34,7 +34,7 @@ h1 {
 }
 
 #add-buttons {
-    height: 50px;
+    height: auto;
     font-weight: bold;
     font-family: 'Special Elite', cursive;
 }
@@ -52,6 +52,9 @@ h1 {
 .jumbotron {
     background-color: black;
     color: rgb(182, 156, 10);
+    position:relative;
+    z-index: 2;
+    box-shadow: 0 8px 16px -6px black;
 }
 
 .column {
