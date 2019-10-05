@@ -10,7 +10,7 @@
 * [Ubran Dictionary API](https://rapidapi.com/community/api/urban-dictionary) - API used to generate Urban definitions
 * [Firebase](https://firebase.google.com/) - Used to store most recently searched terms
 * [Clippy](https://codepen.io/kunukn/pen/LNgrYa) - Library used to generate Clippy animation
-* [Clippy](https://github.com/smore-inc/clippy.js) - Secondary library used to generate Clippy animation
+* [Clippy](https://github.com/pi0/clippyjs) - Secondary library used to generate Clippy animation
 
 
 ## Authors
