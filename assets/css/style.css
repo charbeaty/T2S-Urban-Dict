@@ -23,7 +23,7 @@ h1 {
 }
 
 #current-word,
-.definition, {
+.definition {
     height: 150px;
 }
 
