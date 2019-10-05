@@ -88,6 +88,7 @@ $(document).ready(function () {
         ttsWord = $('#definition-input').val().trim();
         apiCall(ttsWord);
 
+
         //FIREBASE SHIFT+PUSH
         recentTerms.push(ttsWord);
         if (recentTerms.length > 5) {
@@ -96,6 +97,7 @@ $(document).ready(function () {
         console.log(recentTerms)
         database.ref().update(recentTerms);
     });
+   
 
     //When clicking the recent search button it passes the value to the api call.  This was a pain in the ass and the only way I could get it to work.
 
@@ -145,157 +147,37 @@ $(document).ready(function () {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //Recently Searched buttons
-// function recentlySearched() {
-//     for (var i = 0; i < 5; i ++) {
-//             var searchesDiv = $('<div>');
-//             var searchesButtons = $('<button>');
-//             searchesButtons.addClass('searchesButtons');
-//             searchesButtons.attr('data-name', 'PLACEHOLDER/FIREBASE');
-//             searchesButtons.text('PLACEHOLDER/FIREBASE');
-
-//             searchesDiv.append(searchesButtons);
-//             $('#add-buttons').append(searchesButtons);
-//     }
-// }
-
-
-
-// //Button Click for Recently Searched buttons
-// $(document).on('click', '#add-buttons', function () {
-//     $('#definition').empty();
-
-//     var thisTerm = $(this).attr('data-name');
-
-//     //RUN AJAX FUNCTION
-// });
-
-
-//Testing graveyard that we still may need.
-
-// var term = ""; //The user input string we will pass to the Urban Dictionary API.
-// var ttsWord = ""; //Holds the word of the response from the urban dictionary API.
-// var ttsDef = ""; //Holds the definition of the response from the urban dictionary API. 
-// var ttsExam = ""; //Holds the example of the response from the urban dictionary API.
-
-// //The settings we pass to the Urban Dictionary API.  The same as using url and method with extra info required for the API.
-// var udSettings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + term,
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
-//         "x-rapidapi-key": "865d7325ecmshf0a5dcd3da7a815p1672a1jsn663835f71fe6"
-//     }
-// }
-
-// // Ajax request with our Urban Dictionary settings passed in.  
-// $.ajax(udSettings).done(function (response) {
-//     console.log(response);
-
-//     var short = response.list; // Shortened response from API.
-//     var i = 0; // Placeholder until loop is set to run through list of responses.
-//     ttsWord = short[i].word; // Variable assignment to the word response.
-//     ttsDef = short[i].definition; // Variable assignment to the definition response.
-//     ttsExam = short[i].example; // Variable assignment to the example response.
-
-//     $("#definition").text(ttsDef); // Placeholder showing the definition to the screen on test machine.
-
-//     // Passes the variables into the TTS API to create an audio file that plays the search variables we got from our Urban Dictionary API.
-//     var audio = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + ttsWord + " . " + ttsDef + " . " + ttsExam + '&r=0')
-
-//     audio.play(); // Plays the audio we created from our TTS API request. 
-
-// });
+//Clippy Animation
+
+clippy.load('Clippy', function(agent){    
+    const animations = agent.animations();    
+    $('#clippy').text(animations.join(' '));
+    agent.show();
+    agent.moveTo(100,100);
+    agent.speak('When all else fails, bind some paper together. My name is Clippy.');
+    setTimeout(animate.bind(null, agent, animations), 8000);        
+  });
+  
+  function animate(agent, animations){  
+    
+    function doneCallback(animation){
+      console.log('done ' + animation);
+    }
+    
+    let statesText = animations.join(' '),
+        $state = $('#clippy'),
+        $states = $('#clippy');
+      
+    for(var i = 0; i<animations.length; i++){      
+      ((index)=>{
+        setTimeout(_=>{
+          let animation = animations[index];
+          let currentStateInStates = statesText.replace(animation, `<b>${animation}</b>`);
+          $state.text(animation);                
+          $states.html(currentStateInStates);
+          agent.play(animation, undefined, doneCallback.bind(null, animation));  
+        }, index*8000);
+      })(i);        
+    }
+  }
+  
