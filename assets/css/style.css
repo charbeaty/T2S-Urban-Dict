@@ -2,7 +2,6 @@ body {
     background-image: url(http://eskipaper.com/images/gray-background-3.jpg);
     background-color: white;
     background-position: fixed;
-    height: 500px; 
     background-repeat: no-repeat; 
     background-size: cover; 
 }
@@ -16,6 +15,9 @@ body {
     background-color: black;
     color: rgb(182, 156, 10);
     font-family: 'Special Elite', cursive;
+    position:relative;
+    z-index: 2;
+    box-shadow: 0 8px 16px -6px black;
 }
 
 h1 {
@@ -24,8 +26,11 @@ h1 {
 }
 
 #current-word,
-.definition, {
+.definition {
     height: 150px;
+    position:relative;
+    z-index: 2;
+    box-shadow: 0 8px 16px -6px black;
 }
 
 .current-word-word {
@@ -37,6 +42,9 @@ h1 {
     height: auto;
     font-weight: bold;
     font-family: 'Special Elite', cursive;
+    position:relative;
+    z-index: 2;
+    box-shadow: 0 8px 16px -6px black;
 }
 
 #add-definition {
