@@ -64,7 +64,7 @@ $(document).ready(function () {
                 var short = response.list; // Shortened response from API.
                 ttsWord = short[0].word; // Variable assignment to the word response.
 
-                $("#current-word").text("Current Word: " + ttsWord);
+                $(".current-word-word").text(ttsWord);
                 $("#definition-view-1").text(short[0].definition);
                 $("#definition-view-2").text(short[1].definition);
                 $("#definition-view-3").text(short[2].definition);
