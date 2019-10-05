@@ -102,26 +102,31 @@ $(document).ready(function () {
     $(document).on('click', '#recent0', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent1', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent2', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent3', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     $(document).on('click', '#recent4', function (e) {
         e.preventDefault();
         apiCall($(this).attr('val'));
+        agent.Play("Searching");
     });
 
     //Button Click for Definition T2S
