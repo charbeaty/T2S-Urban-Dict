@@ -8,9 +8,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Slabo+27px&display=swap" rel="stylesheet">
     <!-- <link type="text/css" src="./dist/bttn.min.css"/> -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Add the stylesheet to the head for clippy.js -->
     <link rel="stylesheet" type="text/css" href="clippy/src/clippy.css" media="all">
 </head>
 
@@ -26,13 +26,16 @@
         <!-- div for clippy animation -->
 
         <!-- div for buttons of recently searched definition here -->
-        <div id="add-buttons">Recently Searched Words:</div> <br>
+        <label for="searchedWordDiv" class="center">Recently Searched Words:</label>
+        <div id="add-buttons"></div> <br>
 
         <div class="row">
             <div class="column left"></div>
             <!-- Current word div -->
             <div class="column middle">
-                <div id="current-word" class="center">Current Word:</div>
+                <div id="current-word">
+               <label for="currentWordDiv" class="center">Current Word:</label>     
+                </div>
             </div>
             <br>
             <!-- Search input -->
@@ -45,6 +48,41 @@
                 </form>
             </div>
         </div>
+        <br>
+        <!-- Defintions will be dumped here -->
+
+        
+            <label for="defOneDiv" class="center">Definition One:</label>
+            <div class="definition" id="definition-view-1">Word Defined Here</div>
+
+        <br>
+        <label for="defOneDiv" class="center">Definition Two:</label>
+        <div class="definition" id="definition-view-2">Word Defined Here</div>
+
+        <br>
+        <label for="defOneDiv" class="center">Definition Three:</label>
+        <div class="definition" id="definition-view-3">Word Defined Here</div>
+
+        <br>
+    </div>
+
+    </div>
+        <!-- Current word div -->
+        <div class="column middle">
+        <div id="current-word" class="center">Current Word:</div>
+       </div>
+        <br>
+        <!-- Search input -->
+        <div class="column right">
+        <form id="definition-form" autocomplete="off">
+            <label id="provided" for="definition-input">What's the word?</label>
+            <input type="text" id="definition-input" required> <br>
+        <!-- Submit button to add definitions to screen -->
+            <input id="add-definition"  type="submit" value="Define">
+        </form>
+        </div>
+    </div>
+
         <br>
         <!-- Defintions will be dumped here -->
 

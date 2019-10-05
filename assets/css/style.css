@@ -5,6 +5,7 @@ body {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
+    font-family: 'Slabo 27px', serif;
 }
 
 #add-buttons,
@@ -15,13 +16,18 @@ body {
     border: 2px solid black;
     background-color: black;
     color: rgb(182, 156, 10);
+    font-weight: bold;
 }
 
 #current-word,
-.definition {
+.definition, {
     height: 150px;
 }
 
+button {
+    font-family: 'Slabo 27px', serif;
+    font-weight: bold;
+}
 #add-buttons {
     height: 50px;
 }
@@ -62,4 +68,8 @@ body {
 
 .definition {
     height: auto;
+}
+
+.center {
+    font-weight: bold;
 }
