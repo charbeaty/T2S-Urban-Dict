@@ -92,6 +92,7 @@ $(document).ready(function () {
         ttsWord = $('#definition-input').val().trim();
         apiCall(ttsWord);
 
+
         //FIREBASE SHIFT+PUSH
         recentTerms.push(ttsWord);
         if (recentTerms.length > 5) {
@@ -100,6 +101,7 @@ $(document).ready(function () {
         console.log(recentTerms)
         database.ref().update(recentTerms);
     });
+   
 
     //When clicking the recent search button it passes the value to the api call.  This was a pain in the ass and the only way I could get it to work.
 
@@ -142,4 +144,8 @@ $(document).ready(function () {
         play(audioDef2);
     });
 
+
 });
+
+
+
