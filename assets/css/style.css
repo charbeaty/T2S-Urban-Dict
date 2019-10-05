@@ -1,11 +1,10 @@
 body {
     background-image: url(http://eskipaper.com/images/gray-background-3.jpg);
     background-color: white;
+    background-position: fixed;
     height: 500px; 
-    background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    font-family: 'Slabo 27px', serif;
 }
 
 #add-buttons,
@@ -16,7 +15,12 @@ body {
     border: 2px solid black;
     background-color: black;
     color: rgb(182, 156, 10);
-    font-weight: bold;
+    font-family: 'Special Elite', cursive;
+}
+
+h1 {
+    font-family:'Frijole', cursive;
+    font-size: 85px;
 }
 
 #current-word,
@@ -24,12 +28,10 @@ body {
     height: 150px;
 }
 
-button {
-    font-family: 'Slabo 27px', serif;
-    font-weight: bold;
-}
 #add-buttons {
     height: 50px;
+    font-weight: bold;
+    font-family: 'Special Elite', cursive;
 }
 
 #add-definition {
@@ -68,8 +70,10 @@ button {
 
 .definition {
     height: auto;
+    font-family:'Special Elite', cursive;
 }
 
 .center {
     font-weight: bold;
+    font-family: 'Special Elite', cursive;
 }
