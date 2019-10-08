@@ -9,7 +9,7 @@
 * [Voice RSS Text-to-Speech](https://rapidapi.com/voicerss/api/text-to-speech-1) - API used to generate text-to-speech
 * [Ubran Dictionary API](https://rapidapi.com/community/api/urban-dictionary) - API used to generate Urban definitions
 * [Firebase](https://firebase.google.com/) - Used to store most recently searched terms
-* [Clippy](https://github.com/pi0/clippyjs) -L ibrary used to generate Clippy animation
+* [Clippy](https://github.com/pi0/clippyjs) -Library used to generate Clippy animation
 
 
 ## Authors
