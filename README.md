@@ -18,3 +18,8 @@
 * **** -  - [Dylan Thomas](https://github.com/thomasdylan)
 * **** -  - [Randa Viets](https://github.com/rcviets)
 * **** -  - [Charissa Beaty](https://github.com/charbeaty)
+
+## Images
+
+![Image of Urban Reader](assets/images/readmeImage1.png?raw=true "Urban Reader")
+![Image of Urban Reader](assets/images/readmeImage2.png?raw=true "Urban Definitions")
