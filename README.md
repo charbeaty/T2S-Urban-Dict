@@ -21,5 +21,5 @@
 
 ## Images
 
-![Image of Urban Reader](assets/images/readmeImage1.png)
-![Image of Urban Reader](assets/images/readmeImage2.png)
+![Image of Urban Reader](/assets/images/readmeImage1.png)
+![Image of Urban Reader](/assets/images/readmeImage2.png)
