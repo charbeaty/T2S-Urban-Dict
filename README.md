@@ -21,5 +21,5 @@
 
 ## Images
 
-![Image of Urban Reader](assets/images/readmeImage1.png?raw=true "Urban Reader")
-![Image of Urban Reader](assets/images/readmeImage2.png?raw=true "Urban Definitions")
+![Image of Urban Reader](assets/images/readmeImage1.png)
+![Image of Urban Reader](assets/images/readmeImage2.png)
