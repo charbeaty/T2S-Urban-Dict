@@ -7,7 +7,15 @@ $(document).ready(function () {
     var audioDef2 = "";
 
     // Your web app's Firebase configuration
-    
+    var firebaseConfig = {
+        apiKey: "AIzaSyBADdFEM1R_H16JbRWh90kGOB4X4pK6yFs",
+        authDomain: "urban-text-to-speech.firebaseapp.com",
+        databaseURL: "https://urban-text-to-speech.firebaseio.com",
+        projectId: "urban-text-to-speech",
+        storageBucket: "",
+        messagingSenderId: "567386930661",
+        appId: "1:567386930661:web:367eb94614400531c4030c"
+    };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
@@ -48,6 +56,7 @@ $(document).ready(function () {
             }
         }
 
+        var ttsAPI = 'b9adf06b180248ce99d0839658188104'; //TTS API key
         // Ajax request with our Urban Dictionary settings passed in.  
         $.ajax(udSettings)
             .done(function (response) {
@@ -60,9 +69,9 @@ $(document).ready(function () {
                 $("#definition-view-2").text(short[1].definition);
                 $("#definition-view-3").text(short[2].definition);
 
-                audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI.ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
-                audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI.ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
-                audioDef2 = new Audio('http://api.voicerss.org/?key=' + ttsAPI.ttsAPI + '&hl=en-us&src=' + short[2].word + " . " + short[2].definition + " . Example: " + short[2].example + '&r=0');
+                audioDef0 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[0].word + " . " + short[0].definition + " . Example: " + short[0].example + '&r=0');
+                audioDef1 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[1].word + " . " + short[1].definition + " . Example: " + short[1].example + '&r=0');
+                audioDef2 = new Audio('http://api.voicerss.org/?key=' + ttsAPI + '&hl=en-us&src=' + short[2].word + " . " + short[2].definition + " . Example: " + short[2].example + '&r=0');
             });
     };
 
@@ -80,7 +89,6 @@ $(document).ready(function () {
     $('#add-definition').click(function (event) {
         event.preventDefault();
         ttsWord = $('#definition-input').val().trim();
-        $('#definition-input').val('');
         apiCall(ttsWord);
 
         //FIREBASE SHIFT+PUSH
