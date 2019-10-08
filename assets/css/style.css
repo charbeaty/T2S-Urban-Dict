@@ -35,7 +35,7 @@ h1 {
 }
 
 .current-word-word {
-    font-size: 32px;
+    font-size: 60px;
     text-align: center;
 }
 
@@ -87,7 +87,7 @@ h1 {
 
 .definition {
     height: auto;
-    font-family:'Special Elite', cursive;
+    font-family: 'Domine', serif;
 }
 
 .center {
