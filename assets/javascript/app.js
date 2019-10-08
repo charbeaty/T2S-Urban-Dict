@@ -89,7 +89,6 @@ $(document).ready(function () {
     $('#add-definition').click(function (event) {
         event.preventDefault();
         ttsWord = $('#definition-input').val().trim();
-        $('#definition-input').val('');
         apiCall(ttsWord);
 
         //FIREBASE SHIFT+PUSH
