@@ -7,47 +7,55 @@
     <title>Urban Reader</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Eater|Faster+One|Fjalla+One|Frijole|Shojumaru|Special+Elite&display=swap" rel="stylesheet">
     <!-- <link type="text/css" src="./dist/bttn.min.css"/> -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Add the stylesheet to the head -->
+    <link rel="stylesheet" type="text/css" href="https://gitcdn.xyz/repo/pi0/clippyjs/master/assets/clippy.css">
 </head>
 
 <body>
 
 
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" >
             <div class="container">
                 <h1 class="text-center">Urban Reader</h1>
-            </div>
+            
         </div>
+    </div>
         <!-- div for clippy animation -->
 
         <!-- div for buttons of recently searched definition here -->
-        <div id="add-buttons">Recently Searched Words:</div> <br>
+        <label for="searchedWordDiv" class="center">Recently Searched Words:</label>
+        <div id="add-buttons"></div> <br>
 
         <div class="row">
-            <div class="column left">
-                <div id="clippy">
-                    <img src="https://via.placeholder.com/150">
-                </div>
-            </div>
+            <div class="column left"></div>
             <!-- Current word div -->
             <div class="column middle">
-                <div id="current-word" class="center">Current Word:</div>
+                <div id="current-word" class="center">
+                    <p class="current-word-header">Current Word:</p>
+                    <p class="current-word-word"><!-- Push word here--></p>
+                </div>
             </div>
             <br>
             <!-- Search input -->
             <div class="column right">
                 <form id="definition-form" autocomplete="off">
                     <label id="provided" for="definition-input">What's the word?</label>
-                    <input type="text" id="definition-input" required> <br>
+                    <input type="text" id="definition-input" class="form-control" required> <br>
                     <!-- Submit button to add definitions to screen -->
                     <input id="add-definition" type="submit" value="Define">
                 </form>
             </div>
         </div>
         <br>
+ 
         <!-- Defintions will be dumped here -->
 
         <div class="definition" id="definition-view-1">Definition one</div>
@@ -68,8 +76,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Clippy -->
+    <script src="https://unpkg.com/clippyjs@latest"></script>
     <!-- App.js -->
-    <script src="assets/javascript/app.js" async defer></script>
+    <script src="assets/javascript/app.js"></script>
 
 </body>
 

@@ -1,24 +1,20 @@
-# Project Title
+# Urban Reader
+    
+    Urban Reader is a web app that uses text-to-speech to read Urban Dictionary definitions of popular words. The most recently searched terms across the web are displayed at the top, so you can hear what other people are looking up!
 
-One Paragraph of project description goes here
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [BootStrap](https://getbootstrap.com/) - Wireframe for webpage
+* [Voice RSS Text-to-Speech](https://rapidapi.com/voicerss/api/text-to-speech-1) - API used to generate text-to-speech
+* [Ubran Dictionary API](https://rapidapi.com/community/api/urban-dictionary) - API used to generate Urban definitions
+* [Firebase](https://firebase.google.com/) - Used to store most recently searched terms
+* [Clippy](https://codepen.io/kunukn/pen/LNgrYa) - Library used to generate Clippy animation
+* [Clippy](https://github.com/pi0/clippyjs) - Secondary library used to generate Clippy animation
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
-* **** -  - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
+* **** -  - [Dylan Thomas](https://github.com/thomasdylan)
+* **** -  - [Randa Viets](https://github.com/rcviets)
+* **** -  - [Charissa Beaty](https://github.com/charbeaty)
