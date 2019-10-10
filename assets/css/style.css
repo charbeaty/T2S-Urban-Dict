@@ -26,6 +26,12 @@ h1 {
     font-size: 85px;
 }
 
+.jumbo-header {
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    font-size: 24px;
+}
+
 #current-word,
 .definition {
     height: 150px;
